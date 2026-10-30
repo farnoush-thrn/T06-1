@@ -1,11 +1,17 @@
+// js/histogram.js
+
 const drawHistogram = (data) => {
     // Step 6.1 Set the dimensions and margins of the chart area
-    
+    const svg = d3.select("#histogram")
+        .append("svg")
+        .attr("viewBox", `0 0 ${width} ${height}`); // Responsive SVG
+
     // Create an inner chart group with margins
+    const innerChart = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // Step 6.2 Set up bins
-    // First, in shared-constants.js, create a bin generator using d3.bin
-    // Second, Generate the bins
+    // Generate the bins using the globally defined binGenerator
     const bins = binGenerator(data); // Save the bins into an array
 
     console.log(bins); // Log the bins to the console for debugging
