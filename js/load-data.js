@@ -1,3 +1,5 @@
+// js/load-data.js
+
 // Load the CSV file with a row conversion function
 d3.csv("data/Ex6_TVdata.csv", d => ({
     brand: d.brand,
@@ -10,11 +12,9 @@ d3.csv("data/Ex6_TVdata.csv", d => ({
     // Log the processed data to the console
     console.log(data);
 
-    // T06-1 Step 4: Call functions after data is loaded
-
-    // T06-2 Step 1.3 Call the drawScatterplot
-    
-    // T06-2 Step 3: Call the createTooltip() and handleMouseEvents() function
+    // Call functions after data is loaded
+    drawHistogram(data);
+    populateFilters(data);
 
 }).catch(error => {
     console.error("Error loading the CSV file:", error);
